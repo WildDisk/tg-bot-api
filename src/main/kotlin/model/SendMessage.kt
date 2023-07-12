@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class SendMessage(
     @SerialName("ok") val ok: Boolean,
     @SerialName("result") val result: Result
-) : Structure {
+) : BodyResponse {
     @Serializable
     data class Result(
         @SerialName("message_id") val messageId: Long,
@@ -19,7 +19,7 @@ data class SendMessage(
     ) {
         @Serializable
         data class From(
-            @SerialName("message_id") val id: Long,
+            @SerialName("id") val id: Long,
             @SerialName("is_bot") val isBot: Boolean,
             @SerialName("first_name") val firstName: String,
             @SerialName("username") val username: String

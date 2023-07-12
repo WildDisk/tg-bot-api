@@ -1,19 +1,13 @@
 package core
 
-import kotlinx.coroutines.runBlocking
+import model.BodyResponse
 import request.Request
 
 class Endpoint(private val result: String) {
-    constructor(suspendRequest: SuspendRequest) : this(
-        result = try {
-            suspendRequest.request().toString()
-        } catch (e: Exception) {
-            e.localizedMessage
-        }
-    )
+    constructor(response: BodyResponse) : this(result = response.toString())
     constructor(request: Request) : this(
         result = try {
-            runBlocking { request.send().toString() }
+            request.send().toString()
         } catch (e: Exception) {
             e.localizedMessage
         }

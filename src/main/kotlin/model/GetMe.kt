@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class GetMe(
     @SerialName("ok") private val ok: Boolean,
     @SerialName("result") private val result: Result
-) : Structure {
+) : BodyResponse {
     @Serializable
     data class Result(
         @SerialName("id") private val id: Long,

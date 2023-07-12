@@ -1,7 +1,7 @@
 package request
 
-import model.Structure
+import model.BodyResponse
 
 interface Request {
-    suspend fun send(): Structure
+    fun send(): BodyResponse
 }

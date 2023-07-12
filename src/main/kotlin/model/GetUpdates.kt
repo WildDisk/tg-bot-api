@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class GetUpdates(
     @SerialName("ok") val ok: Boolean,
     @SerialName("result") val result: List<Result>
-) : Structure {
+) : BodyResponse {
     @Serializable
     data class Result(
         @SerialName("update_id") val updateId: Long,

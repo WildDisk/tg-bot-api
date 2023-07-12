@@ -8,4 +8,4 @@ data class Error(
     @SerialName("ok") val ok: Boolean,
     @SerialName("error_code") val errorCode: String,
     @SerialName("description") val description: String
-) : Structure
+) : BodyResponse
