@@ -1,11 +1,10 @@
-import app.BotAnswer
-import app.BotInfo
-import app.View
+package app
+
 import core.Display
 import core.Endpoint
-import core.TgClient
-import kotlinx.coroutines.*
 import core.ListnableSource
+import core.TgClient
+import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     val tg = TgClient("6369961965:AAFR4c4sZp7bz1XYpciWyDNLplMcnPAzbv0")
