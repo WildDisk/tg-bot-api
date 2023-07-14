@@ -9,9 +9,7 @@ fun main() = runBlocking {
 //    val tg = TgClient("1369961965:AAFR4c4sZp7bz1XYpciWyDNLplMcnPAzbv0")
     val chatId: Long = 471280610
     val doThat = DoSomething(tg, chatId)
-    Display(ListnableSource(500)).lookup {
-        launch {
-            doThat.doSomething()
-        }
+    Display(ListnableSource(500)).watch {
+        doThat.doSomething()
     }
 }
