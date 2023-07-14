@@ -11,7 +11,7 @@ class Display(private val listnableSource: ListnableSource) {
                 block.invoke()
             }
         } catch (e: Exception) {
-            println("Чёт случилось: ${e.localizedMessage}")
+            println("Чёт случилось: ${e.localizedMessage}, ${e.cause}")
         }
     }
 }
