@@ -3,11 +3,11 @@ package request
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 
-class ListnableSource(private val repeate: Long) {
+class ListnableSource(private val repeat: Long) {
     suspend fun listen(block: () -> Unit) {
         coroutineScope {
             while (true) {
-                delay(repeate)
+                delay(repeat)
 //                launch {
                     try {
                         block.invoke()
