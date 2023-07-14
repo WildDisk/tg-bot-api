@@ -1,15 +1,22 @@
+import app.BotAnswer
+import app.BotInfo
+import app.View
 import core.Display
-import core.DoSomething
+import core.Endpoint
 import core.TgClient
 import kotlinx.coroutines.*
-import request.ListnableSource
+import core.ListnableSource
 
 fun main() = runBlocking {
     val tg = TgClient("6369961965:AAFR4c4sZp7bz1XYpciWyDNLplMcnPAzbv0")
 //    val tg = TgClient("1369961965:AAFR4c4sZp7bz1XYpciWyDNLplMcnPAzbv0")
     val chatId: Long = 471280610
-    val doThat = DoSomething(tg, chatId)
+    val bot = BotAnswer(BotInfo(tg, chatId))
     Display(ListnableSource(500)).watch {
-        doThat.doSomething()
+        View(
+            Endpoint(
+                bot.fetch()
+            )
+        )
     }
 }

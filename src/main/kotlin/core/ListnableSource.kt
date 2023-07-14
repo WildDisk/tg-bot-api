@@ -1,4 +1,4 @@
-package request
+package core
 
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
