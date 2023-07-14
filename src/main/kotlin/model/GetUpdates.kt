@@ -20,10 +20,10 @@ data class GetUpdates(
             @SerialName("chat") val chat: Chat,
             @SerialName("date") val date: Long,
             @SerialName("text") val text: String = "",
-            @SerialName("sticker") val sticker: SendMessage.Result.Sticker = SendMessage.Result.Sticker(),
-            @SerialName("entities") val entities: List<SendMessage.Result.Entities> = emptyList(),
-            @SerialName("photo") val photo: List<SendMessage.Result.Photo> = emptyList(),
-            @SerialName("voice") val voice: SendMessage.Result.Voice = SendMessage.Result.Voice(),
+            @SerialName("sticker") val sticker: Sticker = Sticker(),
+            @SerialName("entities") val entities: List<Entities> = emptyList(),
+            @SerialName("photo") val photo: List<Photo> = emptyList(),
+            @SerialName("voice") val voice: Voice = Voice(),
         ) {
             @Serializable
             data class From(
