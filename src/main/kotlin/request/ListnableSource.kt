@@ -8,13 +8,11 @@ class ListnableSource(private val repeat: Long) {
         coroutineScope {
             while (true) {
                 delay(repeat)
-//                launch {
-                    try {
-                        block.invoke()
-                    } catch (e: Exception) {
-                        throw Exception(e.localizedMessage, e)
-                    }
-//                }
+                try {
+                    block.invoke()
+                } catch (e: Exception) {
+                    throw Exception(e.localizedMessage, e)
+                }
             }
         }
     }
