@@ -19,8 +19,11 @@ data class GetUpdates(
             @SerialName("from") val from: From,
             @SerialName("chat") val chat: Chat,
             @SerialName("date") val date: Long,
-            @SerialName("text") val text: String,
-            @SerialName("entities") val entities: List<Entities> = emptyList()
+            @SerialName("text") val text: String = "",
+            @SerialName("sticker") val sticker: SendMessage.Result.Sticker = SendMessage.Result.Sticker(),
+            @SerialName("entities") val entities: List<SendMessage.Result.Entities> = emptyList(),
+            @SerialName("photo") val photo: List<SendMessage.Result.Photo> = emptyList(),
+            @SerialName("voice") val voice: SendMessage.Result.Voice = SendMessage.Result.Voice(),
         ) {
             @Serializable
             data class From(
@@ -42,6 +45,54 @@ data class GetUpdates(
                 @SerialName("offset") val offset: Int,
                 @SerialName("length") val length: Int,
                 @SerialName("type") val type: String
+            )
+            @Serializable
+            data class Sticker(
+                @SerialName("width") val width: Int = 0,
+                @SerialName("height") val height: Int = 0,
+                @SerialName("emoji") val emoji: String = "",
+                @SerialName("set_name") val setName: String = "",
+                @SerialName("is_animated") val isAnimated: Boolean = false,
+                @SerialName("is_video") val isVideo: Boolean = false,
+                @SerialName("type") val type: String = "",
+                @SerialName("thumbnail") val thumbnail: Thumbnail = Thumbnail(),
+                @SerialName("thumb") val thumb: Thumb = Thumb(),
+                @SerialName("file_id") val fileId: String = "",
+                @SerialName("file_unique_id") val fileUniqueId: String = "",
+                @SerialName("file_size") val fileSize: Long = 0,
+            ) {
+                @Serializable
+                data class Thumbnail(
+                    @SerialName("file_id") val fileId: String = "",
+                    @SerialName("file_unique_id") val fileUniqueId: String = "",
+                    @SerialName("file_size") val fileSize: Long = 0,
+                    @SerialName("width") val width: Int = 0,
+                    @SerialName("height") val height: Int = 0
+                )
+                @Serializable
+                data class Thumb(
+                    @SerialName("file_id") val fileId: String = "",
+                    @SerialName("file_unique_id") val fileUniqueId: String = "",
+                    @SerialName("file_size") val fileSize: Long = 0,
+                    @SerialName("width") val width: Int = 0,
+                    @SerialName("height") val height: Int = 0
+                )
+            }
+            @Serializable
+            data class Photo(
+                @SerialName("file_id") val fileId: String = "",
+                @SerialName("file_unique_id") val fileUniqueId: String = "",
+                @SerialName("file_size") val fileSize: Long = 0,
+                @SerialName("width") val width: Int = 0,
+                @SerialName("height") val height: Int = 0
+            )
+            @Serializable
+            data class Voice(
+                @SerialName("duration") val duration: Int = 0,
+                @SerialName("mime_type") val mimeType: String = "",
+                @SerialName("file_id") val fileId: String = "",
+                @SerialName("file_unique_id") val fileUniqueId: String = "",
+                @SerialName("file_size") val fileSize: Long = 0
             )
         }
     }

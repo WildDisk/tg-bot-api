@@ -20,4 +20,14 @@ class TgClient(val engine: Engine) {
     } catch (e: Exception) {
         throw Exception("Что-то пошло не так: ${e.localizedMessage}", e)
     }
+    suspend fun stringRequest(uri: String): String = try {
+        val client = this.engine.client()
+        val rq = client.get("https://api.telegram.org/bot${this.engine.token}/$uri").body<String>()
+        client.close()
+        rq
+    } catch (e: UnresolvedAddressException) {
+        throw UnresolvedAddressException()
+    } catch (e: Exception) {
+        throw Exception("Что-то пошло не так: ${e.localizedMessage}", e)
+    }
 }
